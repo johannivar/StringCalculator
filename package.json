@@ -16,5 +16,8 @@
     "Kata"
   ],
   "author": "Jóhann Ívar Björnsson",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
 }
