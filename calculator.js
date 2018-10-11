@@ -2,6 +2,19 @@
 
 //add function
 function add(numbers) {
-  return 0;
+  if(numbers == "")
+    return 0;
+
+  return parseInt(number);
 }
+
+
+
+module.exports = add;
+
+
+
+
+
+
 
