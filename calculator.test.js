@@ -19,3 +19,8 @@ it("should return sum of two given numbers", () => {
 it("should summarize multiple numbers", () => {
   expect(add("1,2,3")).toBe(6);
 });
+
+
+it("should accept both ',' or '\n' as delimitors", () => {
+  expect(add("1\n2,3")).toBe(6);
+}) 

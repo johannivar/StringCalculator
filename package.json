@@ -4,7 +4,8 @@
   "description": "Test driven development assignment in HUGB '18",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node calculator"
   },
   "repository": {
     "type": "git",
