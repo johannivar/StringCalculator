@@ -2,10 +2,12 @@
 
 //add function
 function add(numbers) {
-  if(numbers == "")
+  if(numbers == "") 
     return 0;
-
-  return parseInt(number);
+  
+  return parseInt(numbers);
+  
+  
 }
 
 
