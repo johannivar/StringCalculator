@@ -93,11 +93,9 @@ it("parse string with custom delimiter, commas and newline symbols correctly", (
   expect(parseStringToNumberArr("//;\n1;2\n3,4,5\n6")).toEqual([1,2,3,4,5,6]);
 });
 
+it("parse string with custom delimiter, commas and newline symbols correctly", () => {
+  expect(add("//;\n1;2\n3,4,5\n6")).toBe(21);
+});
 
 
-/*
-it("should use ; as delimitor", () => {
-  expect(add("//;\n1;2")).toBe(3)
-
-});*/
 

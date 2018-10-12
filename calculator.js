@@ -60,15 +60,11 @@ function getNegatives(integerArr) {
       negatives.push(integerArr[i]);
     }
   }
-
   return negatives;
 }
 
 
-//var negs = getNegatives([-1,-2,3]);
-//console.log("negatives: " + negs);
-
-var sum = (add("//;;\n2;;3\n4\n5,6"));
+var sum = (add("//hahaha\n2,3\n4hahahan5,6"));
 console.log("sum: " + sum);
 
 module.exports = {
