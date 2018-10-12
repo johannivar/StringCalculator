@@ -64,3 +64,15 @@ it("should throw error if negative numbers ", () => {
   }
   expect(checkNegs).toThrow("Negatives not allowed: -1,-2,-3");
 }); 
+
+it("should throw error if negative and positive numbers ", () => {
+  function checkNegs() {
+    add("2,-4,5,-6");
+  }
+  expect(checkNegs).toThrow("Negatives not allowed: -4,-6");
+}); 
+
+it("should ignore numbers > 1000", () => {
+  expect(add("1001,2")).toBe(2);
+});
+

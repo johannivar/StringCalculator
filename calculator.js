@@ -9,15 +9,15 @@ function add(numbers) {
 
   var intArray = parseStringToNumberArr(numbers);
   var negNumbers = getNegatives(intArray);
-
   
   if(negNumbers.length) {
     throw ("Negatives not allowed: " + negNumbers);
   } 
 
   for(i = 0; i < intArray.length; i++) {
-    //console.log("into for-loop for the " + i + " time");
-    sum+=intArray[i];
+    if(intArray[i] <= 1000) {
+      sum+=intArray[i];
+    }
   }
   return sum;
 
