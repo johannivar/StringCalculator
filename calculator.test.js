@@ -2,6 +2,7 @@
 const calculationFunctions = require('./calculator');
 var add = calculationFunctions.add;
 var parseStringToNumberArr = calculationFunctions.parseStringToNumberArr;
+var getNegatives = calculationFunctions.getNegatives;
 
 
 //it is an alias for test, they are exactly the same
@@ -24,26 +25,42 @@ it("should summarize multiple numbers", () => {
 
 it("should accept only newline as delimitors", () => {
   expect(add("1\n2")).toBe(3);
-})
+});
 
 
 it("should accept both ',' or newline as delimitors", () => {
   expect(add("1\n2,3")).toBe(6);
-}) 
+}); 
 
-/
+
 it("parse string of comma separated numbers correctly", () => {
   expect(parseStringToNumberArr("1,2,3")).toEqual([1,2,3]);
-})
+});
 
 it("parse string of newline separated numbers correctly", () => {
   expect(parseStringToNumberArr("1\n2\n3")).toEqual([1,2,3]);
-})
+});
 
 it("parse string of newline and comma separated numbers correctly", () => {
   expect(parseStringToNumberArr("1\n2,3")).toEqual([1,2,3]);
-})
+});
+
 it("parse string of a single number to return number", () => {
   expect(parseStringToNumberArr("5")).toEqual([5]);
-})
+});
 
+//getNegatives function test
+it("should return an empty array if no negatives", () => {
+  expect(getNegatives("1,2,3")).toEqual([]);
+});
+
+it("should return an array of the negative numbers if any", () => {
+  expect(getNegatives([-1,-2,3])).toEqual([-1,-2]);
+});
+
+it("should throw error if negative numbers ", () => {
+  function checkNegs() {
+    add("-1,-2,-3");
+  }
+  expect(checkNegs).toThrow("Negatives not allowed");
+}); 
