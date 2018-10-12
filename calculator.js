@@ -12,8 +12,7 @@ function add(numbers) {
 
   
   if(negNumbers.length) {
-    throw ("Negatives not allowed");
-    //throw new DisgustingFlavorError('yuck, octopus flavor');
+    throw ("Negatives not allowed: " + negNumbers);
   } 
 
   for(i = 0; i < intArray.length; i++) {
@@ -54,10 +53,10 @@ function getNegatives(integerArr) {
 
 //var negs = getNegatives([-1,-2,3]);
 //console.log("negatives: " + negs);
-
-var sum = (add("1,2,33"));
+/*
+var sum = (add("-1,-2,-3"));
 console.log("sum: " + sum);
-
+*/
 module.exports = {
   add, 
   parseStringToNumberArr,

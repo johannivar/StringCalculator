@@ -62,5 +62,5 @@ it("should throw error if negative numbers ", () => {
   function checkNegs() {
     add("-1,-2,-3");
   }
-  expect(checkNegs).toThrow("Negatives not allowed");
+  expect(checkNegs).toThrow("Negatives not allowed: -1,-2,-3");
 }); 
