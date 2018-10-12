@@ -8,6 +8,7 @@ function add(numbers) {
   var sum = 0;
 
   var intArray = parseStringToNumberArr(numbers);
+
   var negNumbers = getNegatives(intArray);
   
   if(negNumbers.length) {
@@ -24,10 +25,23 @@ function add(numbers) {
 }
 
 function parseStringToNumberArr(fullstring) {
-  
+  if (fullstring.substring(0,2) == "//") {
+    var cusDelimStartIndex = 2;
+    var cusDelimEndIndex = fullstring.indexOf("\n");
+    var cusDelim = fullstring.substring(cusDelimStartIndex, cusDelimEndIndex);
+    fullstring = fullstring.substring(3+cusDelim.length);
+  }
   var regex = new RegExp("[\n,]+")
-  //console.log("regex: " + regex);
-  var stringArray = fullstring.split(regex);
+
+  var stringArrayCusDelim = fullstring.split(cusDelim);
+
+  var stringArray = [];
+  for (i = 0; i < stringArrayCusDelim.length; i++) {
+    var tmpArr = stringArrayCusDelim[i].split(regex);
+    for (j = 0; j < tmpArr.length; j++) {
+      stringArray.push(tmpArr[j]);
+    }
+  }
 
   var intArray = [];
   for (i = 0; i < stringArray.length; i++) {
@@ -53,10 +67,10 @@ function getNegatives(integerArr) {
 
 //var negs = getNegatives([-1,-2,3]);
 //console.log("negatives: " + negs);
-/*
-var sum = (add("-1,-2,-3"));
+
+var sum = (add("//;;\n2;;3\n4\n5,6"));
 console.log("sum: " + sum);
-*/
+
 module.exports = {
   add, 
   parseStringToNumberArr,

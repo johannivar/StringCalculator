@@ -76,3 +76,28 @@ it("should ignore numbers > 1000", () => {
   expect(add("1001,2")).toBe(2);
 });
 
+
+it("parse string with custom delimiter correctly", () => {
+  expect(parseStringToNumberArr("//;\n1;2;3")).toEqual([1,2,3]);
+});
+
+it("parse string with custom delimiter and commas correctly", () => {
+  expect(parseStringToNumberArr("//;\n1;2,3")).toEqual([1,2,3]);
+});
+
+it("parse string with custom delimiter and newline symbols correctly", () => {
+  expect(parseStringToNumberArr("//;\n1;2\n3")).toEqual([1,2,3]);
+});
+
+it("parse string with custom delimiter, commas and newline symbols correctly", () => {
+  expect(parseStringToNumberArr("//;\n1;2\n3,4,5\n6")).toEqual([1,2,3,4,5,6]);
+});
+
+
+
+/*
+it("should use ; as delimitor", () => {
+  expect(add("//;\n1;2")).toBe(3)
+
+});*/
+
