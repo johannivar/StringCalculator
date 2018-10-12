@@ -1,5 +1,7 @@
 //calculator.test.js
-const add = require('./calculator');
+const calculationFunctions = require('./calculator');
+var add = calculationFunctions.add;
+var parseStringToNumberArr = calculationFunctions.parseStringToNumberArr;
 
 
 //it is an alias for test, they are exactly the same
@@ -28,3 +30,20 @@ it("should accept only newline as delimitors", () => {
 it("should accept both ',' or newline as delimitors", () => {
   expect(add("1\n2,3")).toBe(6);
 }) 
+
+/
+it("parse string of comma separated numbers correctly", () => {
+  expect(parseStringToNumberArr("1,2,3")).toEqual([1,2,3]);
+})
+
+it("parse string of newline separated numbers correctly", () => {
+  expect(parseStringToNumberArr("1\n2\n3")).toEqual([1,2,3]);
+})
+
+it("parse string of newline and comma separated numbers correctly", () => {
+  expect(parseStringToNumberArr("1\n2,3")).toEqual([1,2,3]);
+})
+it("parse string of a single number to return number", () => {
+  expect(parseStringToNumberArr("5")).toEqual([5]);
+})
+
